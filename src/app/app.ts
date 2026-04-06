@@ -1,21 +1,32 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { ChangeDetectionStrategy, Component, signal, HostListener  } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { ChatbotComponent } from './features/chatbot/chatbot.component';
+import { Header } from './core/components/header/header';
+import { Footer } from './core/components/footer/footer';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, ChatbotComponent],
+  imports: [RouterOutlet, RouterLink, ChatbotComponent, Header, Footer],
   templateUrl: './app.html',
 })
 export class App {
-  menuOpen = signal(false);
+   showScrollTop = signal(false);
 
-  toggleMenu() {
-    this.menuOpen.update(v => !v);
+    @HostListener('window:scroll')
+  onScroll() {
+    this.showScrollTop.set(window.scrollY > 400);
   }
 
-  closeMenu() {
-    this.menuOpen.set(false);
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // toggleMenu() {
+  //   this.menuOpen.update(v => !v);
+  // }
+
+  // closeMenu() {
+  //   this.menuOpen.set(false);
+  // }
 }

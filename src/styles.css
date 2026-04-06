@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Public+Sans:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
 @theme {
   --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
@@ -15,7 +16,7 @@
   /* Surface Hierarchy */
   --color-surface: #faf9f8;
   --color-surface-container-low: #f4f3f2;
-  --color-surface-container: #eeeeed;
+  --color-surface-container: #d4d3d2;
   --color-surface-container-highest: #e3e2e1;
   --color-surface-container-lowest: #ffffff;
   
@@ -90,4 +91,8 @@
 
 @utility shadow-ambient-lg {
   box-shadow: 0 30px 60px -12px rgba(26, 28, 28, 0.1);
+}
+ /* animacion de inicio */
+@utility fill-mode-both {
+  animation-fill-mode: both;
 }
