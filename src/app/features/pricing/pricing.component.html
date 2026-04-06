@@ -1,0 +1,115 @@
+   <div class="bg-surface min-h-screen">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        @if (!configService.selectedModel()) {
+          <div class="text-center py-32">
+            <span class="material-icons text-6xl text-primary/20 mb-6">shopping_cart_checkout</span>
+            <h2 class="text-3xl font-display font-bold text-primary">No hay configuración activa</h2>
+            <p class="mt-4 text-on-surface-variant font-light mb-12">Selecciona un modelo para comenzar tu presupuesto.</p>
+            <button (click)="router.navigate(['/models'])" class="btn-primary">
+              Ir al Catálogo
+            </button>
+          </div>
+        } @else {
+          <div class="editorial-grid gap-y-12">
+            <!-- Header -->
+            <div class="col-span-12">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-2 block">Presupuesto</span>
+              <h1 class="text-5xl font-extrabold text-primary">Resumen de Inversión</h1>
+              <p class="text-on-surface-variant mt-4 font-light text-lg leading-relaxed">Desglose detallado de tu configuración personalizada.</p>
+            </div>
+
+            <!-- Breakdown -->
+            <div class="col-span-12 lg:col-span-7">
+              <div class="bg-surface-container-low p-10 rounded-lg shadow-ambient space-y-8">
+                <div class="flex justify-between items-end pb-8 border-b border-primary/5">
+                  <div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-primary/40 font-bold block mb-1">Modelo Base</span>
+                    <h3 class="text-xl font-bold text-primary">{{ configService.selectedModel()?.name }}</h3>
+                  </div>
+                  <span class="text-xl font-display font-semibold text-primary">{{ configService.selectedModel()?.basePrice | currency:'EUR':'symbol':'1.0-0' }}</span>
+                </div>
+
+                @if (configService.config().modules > 1) {
+                  <div class="flex justify-between items-end pb-8 border-b border-primary/5">
+                    <div>
+                      <span class="text-[10px] uppercase tracking-[0.2em] text-primary/40 font-bold block mb-1">Módulos Adicionales</span>
+                      <h3 class="text-xl font-bold text-primary">x{{ configService.config().modules - 1 }} Unidades</h3>
+                    </div>
+                    <span class="text-xl font-display font-semibold text-primary">{{ (configService.config().modules - 1) * 25000 | currency:'EUR':'symbol':'1.0-0' }}</span>
+                  </div>
+                }
+
+                <div class="flex justify-between items-end pb-8 border-b border-primary/5">
+                  <div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-primary/40 font-bold block mb-1">Pack de Acabados</span>
+                    <h3 class="text-xl font-bold text-primary">{{ configService.selectedPack()?.name }}</h3>
+                    <p class="text-xs text-on-surface-variant mt-1 font-medium">Multiplicador x{{ configService.selectedPack()?.priceMultiplier }} + {{ configService.selectedPack()?.pricePerSqm }}€/m²</p>
+                  </div>
+                  <span class="text-xs font-bold uppercase tracking-widest text-primary/40 italic">Incluido en cálculo</span>
+                </div>
+
+                @if (configService.config().extras.length > 0) {
+                  <div class="space-y-6">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-primary/40 font-bold block">Extras Seleccionados</span>
+                    @for (extra of configService.config().extras; track extra.id) {
+                      <div class="flex justify-between items-center pl-6 border-l-2 border-secondary-container">
+                        <span class="text-sm font-medium text-on-surface">{{ extra.name }}</span>
+                        <span class="text-sm font-bold text-primary">{{ extra.price | currency:'EUR':'symbol':'1.0-0' }}</span>
+                      </div>
+                    }
+                  </div>
+                }
+
+                <div class="pt-12 flex justify-between items-baseline">
+                  <h2 class="text-2xl font-display font-bold text-primary">Total Estimado</h2>
+                  <div class="text-right">
+                    <p class="text-5xl font-display font-bold text-primary tracking-tighter">{{ configService.totalPrice() | currency:'EUR':'symbol':'1.0-0' }}</p>
+                    <p class="text-[10px] font-bold text-primary/40 uppercase tracking-widest mt-2">IVA no incluido</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lead Form -->
+            <div class="col-span-12 lg:col-span-5">
+              <div class="bg-primary p-10 rounded-lg shadow-ambient-lg text-surface">
+                <h3 class="text-2xl font-bold mb-2">Solicitar Presupuesto</h3>
+                <p class="text-surface/60 font-light mb-10">Un arquitecto revisará tu configuración y te contactará en menos de 48h.</p>
+                
+                @if (submitted()) {
+                  <div class="bg-white/10 border border-white/20 rounded-lg p-10 text-center animate-in zoom-in duration-500">
+                    <span class="material-icons text-secondary-container text-5xl mb-4">verified</span>
+                    <h4 class="text-xl font-bold">¡Solicitud Recibida!</h4>
+                    <p class="text-surface/60 mt-2 font-light">Estamos analizando tu proyecto.</p>
+                    <button (click)="router.navigate(['/dashboard'])" class="btn-secondary w-full mt-10">
+                      Ir a Mi Proyecto
+                    </button>
+                  </div>
+                } @else {
+                  <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-6">
+                    <div>
+                      <label for="name" class="block text-[10px] uppercase tracking-[0.2em] font-bold text-surface/40 mb-2">Nombre completo</label>
+                      <input id="name" type="text" formControlName="name" class="w-full bg-white/5 border-none rounded-md px-4 py-4 text-surface focus:ring-2 focus:ring-secondary-container/30 transition-all placeholder:text-surface/20">
+                    </div>
+                    <div class="grid grid-cols-1 gap-6">
+                      <div>
+                        <label for="email" class="block text-[10px] uppercase tracking-[0.2em] font-bold text-surface/40 mb-2">Email</label>
+                        <input id="email" type="email" formControlName="email" class="w-full bg-white/5 border-none rounded-md px-4 py-4 text-surface focus:ring-2 focus:ring-secondary-container/30 transition-all placeholder:text-surface/20">
+                      </div>
+                      <div>
+                        <label for="phone" class="block text-[10px] uppercase tracking-[0.2em] font-bold text-surface/40 mb-2">Teléfono</label>
+                        <input id="phone" type="tel" formControlName="phone" class="w-full bg-white/5 border-none rounded-md px-4 py-4 text-surface focus:ring-2 focus:ring-secondary-container/30 transition-all placeholder:text-surface/20">
+                      </div>
+                    </div>
+                    <button type="submit" [disabled]="form.invalid" class="btn-secondary w-full py-5 text-lg font-bold group/btn mt-4">
+                      <span>Enviar Solicitud</span>
+                      <span class="material-icons ml-3 transition-transform group-hover/btn:translate-x-1">send</span>
+                    </button>
+                  </form>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>

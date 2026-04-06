@@ -1,0 +1,130 @@
+ <div class="bg-surface min-h-screen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        @if (!project()) {
+          <div class="text-center py-32">
+            <span class="material-icons text-6xl text-primary/20 mb-6">architecture</span>
+            <h2 class="text-3xl font-display font-bold text-primary">No tienes proyectos activos</h2>
+            <p class="mt-4 text-on-surface-variant font-light">Solicita un presupuesto para comenzar tu viaje con Extremodular.</p>
+          </div>
+        } @else {
+          <div class="editorial-grid gap-y-16">
+            <!-- Header -->
+            <div class="col-span-12 lg:col-span-8">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-2 block">Mi Proyecto</span>
+              <h1 class="text-5xl font-extrabold text-primary">Hola, {{ project()?.clientName }}</h1>
+              <p class="text-on-surface-variant mt-4 font-light text-lg leading-relaxed">Sigue el progreso de fabricación y montaje de tu hogar Extremodular en tiempo real.</p>
+            </div>
+
+            <!-- Status Overview -->
+            <div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="bg-surface-container-low p-8 rounded-lg shadow-ambient">
+                <span class="text-[10px] uppercase tracking-[0.2em] text-primary/60 font-bold mb-4 block">Fase Actual</span>
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <span class="material-icons">factory</span>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary">{{ project()?.status }}</h3>
+                    <p class="text-xs text-on-surface-variant font-medium">En proceso en taller</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-surface-container-low p-8 rounded-lg shadow-ambient">
+                <span class="text-[10px] uppercase tracking-[0.2em] text-primary/60 font-bold mb-4 block">Progreso Global</span>
+                <div class="mt-2">
+                  <div class="flex justify-between items-end mb-2">
+                    <span class="text-3xl font-display font-bold text-primary">{{ project()?.progress }}%</span>
+                    <span class="text-[10px] font-bold text-primary/40 uppercase tracking-widest">Completado</span>
+                  </div>
+                  <div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+                    <div class="bg-primary h-full rounded-full transition-all duration-1000" [style.width.%]="project()?.progress"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-surface-container-low p-8 rounded-lg shadow-ambient">
+                <span class="text-[10px] uppercase tracking-[0.2em] text-primary/60 font-bold mb-4 block">Entrega Estimada</span>
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                    <span class="material-icons">calendar_today</span>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary">{{ project()?.estimatedDelivery | date:'MMMM yyyy' }}</h3>
+                    <p class="text-xs text-on-surface-variant font-medium">Sujeto a condiciones climáticas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="col-span-12 lg:col-span-8">
+              <h2 class="text-2xl font-bold text-primary mb-12">Línea de Tiempo del Proyecto</h2>
+              <div class="space-y-0">
+                @for (step of steps; track step.name; let i = $index; let last = $last) {
+                  <div class="relative pl-12 pb-12 group">
+                    @if (!last) {
+                      <div class="absolute left-[11px] top-8 bottom-0 w-[2px] bg-surface-container-highest group-hover:bg-primary/20 transition-colors"></div>
+                    }
+                    <div class="absolute left-0 top-1 w-6 h-6 rounded-full border-4 border-surface transition-all duration-500"
+                         [class.bg-primary]="isStepCompleted(i)"
+                         [class.bg-secondary-container]="isCurrentStep(i)"
+                         [class.bg-surface-container-highest]="!isStepCompleted(i) && !isCurrentStep(i)">
+                    </div>
+                    
+                    <div class="bg-surface-container-low p-8 rounded-lg transition-all duration-300 group-hover:bg-surface-container-lowest group-hover:shadow-ambient">
+                      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                        <h3 class="text-xl font-bold text-primary">{{ step.name }}</h3>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full"
+                              [class.bg-primary/10.text-primary]="isStepCompleted(i)"
+                              [class.bg-secondary-container.text-on-secondary-container]="isCurrentStep(i)"
+                              [class.bg-surface-container-highest.text-on-surface-variant]="!isStepCompleted(i) && !isCurrentStep(i)">
+                          {{ isStepCompleted(i) ? 'Completado' : isCurrentStep(i) ? 'En Curso' : 'Pendiente' }}
+                        </span>
+                      </div>
+                      <p class="text-on-surface-variant font-light leading-relaxed">
+                        {{ i === 0 ? 'Estudio Inicial y validación técnica finalizada.' : 
+                           i === 1 ? 'Construcción de módulos en ambiente controlado.' :
+                           i === 2 ? 'Logística y transporte especializado al terreno.' :
+                           i === 3 ? 'Ensamblaje y conexiones finales in-situ.' :
+                           'Entrega de llaves y bienvenida a tu nuevo hogar.' }}
+                      </p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <!-- Documents & Actions -->
+            <div class="col-span-12 lg:col-span-4 space-y-8">
+              <div class="bg-surface-container-low p-8 rounded-lg shadow-ambient">
+                <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-8">Documentación</h3>
+                <div class="space-y-4">
+                  <button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest rounded-md hover:bg-secondary-container transition-all group">
+                    <div class="flex items-center gap-3">
+                      <span class="material-icons text-primary/40 group-hover:text-primary">description</span>
+                      <span class="text-sm font-medium text-on-surface">Contrato de Obra</span>
+                    </div>
+                    <span class="material-icons text-primary/20 group-hover:text-primary">download</span>
+                  </button>
+                  <button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest rounded-md hover:bg-secondary-container transition-all group">
+                    <div class="flex items-center gap-3">
+                      <span class="material-icons text-primary/40 group-hover:text-primary">architecture</span>
+                      <span class="text-sm font-medium text-on-surface">Planos Ejecutivos</span>
+                    </div>
+                    <span class="material-icons text-primary/20 group-hover:text-primary">download</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="bg-primary p-10 rounded-lg shadow-ambient-lg text-surface relative overflow-hidden group">
+                <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-white/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>
+                <h3 class="text-2xl font-bold mb-4 relative z-10">¿Tienes dudas?</h3>
+                <p class="text-surface/70 font-light mb-8 relative z-10">Tu gestor personal está disponible para cualquier consulta sobre el proceso.</p>
+                <button class="btn-secondary w-full relative z-10">Contactar Gestor</button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>

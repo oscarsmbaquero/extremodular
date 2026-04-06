@@ -1,0 +1,111 @@
+ <div class="bg-surface min-h-screen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="editorial-grid mb-16">
+          <div class="col-span-12 lg:col-span-8">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-2 block">Administración</span>
+            <h1 class="text-5xl font-extrabold text-primary">Panel de Control</h1>
+            <p class="text-on-surface-variant mt-4 font-light text-lg leading-relaxed max-w-2xl">
+              Gestión centralizada de proyectos activos y solicitudes de presupuesto. 
+              Supervisa el progreso de la construcción y la interacción con los clientes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Projects Table -->
+        <div class="mb-20">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-display font-bold text-primary">Proyectos Activos</h2>
+            <span class="px-3 py-1 bg-secondary-container text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">
+              {{ dataService.projects().length }} Proyectos
+            </span>
+          </div>
+          
+          <div class="bg-surface-container-low rounded-lg shadow-ambient overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="min-w-full">
+                <thead>
+                  <tr class="bg-primary/5 border-b border-primary/5">
+                    <th scope="col" class="py-5 pl-8 pr-4 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">ID Proyecto</th>
+                    <th scope="col" class="px-4 py-5 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Cliente</th>
+                    <th scope="col" class="px-4 py-5 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Estado</th>
+                    <th scope="col" class="px-4 py-5 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Progreso</th>
+                    <th scope="col" class="px-4 py-5 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Entrega Estimada</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-primary/5">
+                  @for (project of dataService.projects(); track project.id) {
+                    <tr class="hover:bg-primary/[0.02] transition-colors group">
+                      <td class="whitespace-nowrap py-6 pl-8 pr-4 text-sm font-bold text-primary">{{ project.id }}</td>
+                      <td class="whitespace-nowrap px-4 py-6 text-sm text-on-surface-variant font-light">{{ project.clientName }}</td>
+                      <td class="whitespace-nowrap px-4 py-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-secondary-container text-primary">
+                          {{ project.status }}
+                        </span>
+                      </td>
+                      <td class="whitespace-nowrap px-4 py-6">
+                        <div class="flex items-center gap-4">
+                          <div class="w-24 bg-surface-container-highest rounded-full h-1 overflow-hidden">
+                            <div class="bg-primary h-full transition-all duration-1000" [style.width.%]="project.progress"></div>
+                          </div>
+                          <span class="text-[10px] font-bold text-primary/60">{{ project.progress }}%</span>
+                        </div>
+                      </td>
+                      <td class="whitespace-nowrap px-4 py-6 text-sm text-on-surface-variant font-light">{{ project.estimatedDelivery | date:'mediumDate' }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Budgets Table -->
+        <div>
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-display font-bold text-primary">Presupuestos Recientes</h2>
+            <span class="px-3 py-1 bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">
+              {{ dataService.budgets().length }} Solicitudes
+            </span>
+          </div>
+
+          <div class="bg-surface-container-low rounded-lg shadow-ambient overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="min-w-full">
+                <thead>
+                  <tr class="bg-primary/5 border-b border-primary/5">
+                    <th scope="col" class="py-5 pl-8 pr-4 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Cliente</th>
+                    <th scope="col" class="px-4 py-5 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Email</th>
+                    <th scope="col" class="px-4 py-5 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Total</th>
+                    <th scope="col" class="px-4 py-5 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Fecha</th>
+                    <th scope="col" class="px-4 py-5 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">Estado</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-primary/5">
+                  @for (budget of dataService.budgets(); track budget.id) {
+                    <tr class="hover:bg-primary/[0.02] transition-colors">
+                      <td class="whitespace-nowrap py-6 pl-8 pr-4 text-sm font-bold text-primary">{{ budget.clientName }}</td>
+                      <td class="whitespace-nowrap px-4 py-6 text-sm text-on-surface-variant font-light underline decoration-primary/10 underline-offset-4">{{ budget.clientEmail }}</td>
+                      <td class="whitespace-nowrap px-4 py-6 text-sm font-display font-bold text-primary">{{ budget.totalPrice | currency:'EUR':'symbol':'1.0-0' }}</td>
+                      <td class="whitespace-nowrap px-4 py-6 text-sm text-on-surface-variant font-light">{{ budget.date | date:'mediumDate' }}</td>
+                      <td class="whitespace-nowrap px-4 py-6">
+                         <span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-primary text-surface">
+                          {{ budget.status }}
+                        </span>
+                      </td>
+                    </tr>
+                  }
+                  @if (dataService.budgets().length === 0) {
+                    <tr>
+                      <td colspan="5" class="py-20 text-center">
+                        <span class="material-icons text-4xl text-primary/10 mb-4">inbox</span>
+                        <p class="text-sm text-primary/40 font-bold uppercase tracking-widest">No hay presupuestos aún</p>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

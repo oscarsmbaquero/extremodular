@@ -1,0 +1,9 @@
+
+> ai-studio-angular-app@0.0.0 lint
+> ng lint
+
+
+Linting "app"...
+
+All files pass linting.
+

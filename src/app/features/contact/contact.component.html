@@ -1,0 +1,149 @@
+ <div class="bg-surface min-h-screen">
+      <!-- Hero Section -->
+      <section class="bg-primary text-surface py-20 lg:py-32">
+        <div class="editorial-container">
+          <div class="max-w-3xl">
+            <span class="text-[10px] uppercase tracking-[0.4em] text-surface/60 font-bold mb-4 block">Contacto</span>
+            <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-8">
+              Construyamos <br>
+              <span class="text-secondary-container italic font-medium">algo extraordinario.</span>
+            </h1>
+            <p class="text-xl text-surface/80 font-light leading-relaxed">
+              Nuestro equipo de expertos está a tu disposición para asesorarte en cada paso de tu proyecto modular.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Content -->
+      <section class="py-24 lg:py-32">
+        <div class="editorial-container">
+          <div class="editorial-grid">
+            <!-- Form Column -->
+            <div class="col-span-12 lg:col-span-7">
+              <div class="bg-surface-container-low p-8 lg:p-12 rounded-2xl shadow-ambient border border-outline-variant/10">
+                <h2 class="text-3xl font-bold text-primary mb-8">Cuéntanos tu idea</h2>
+                
+                @if (submitted()) {
+                  <div class="bg-emerald-50 border border-emerald-100 p-10 rounded-xl text-center animate-in zoom-in duration-500">
+                    <mat-icon class="text-6xl text-emerald-500 mb-4">check_circle</mat-icon>
+                    <h3 class="text-2xl font-bold text-emerald-900 mb-2">¡Mensaje Recibido!</h3>
+                    <p class="text-emerald-800/70">Gracias por contactar con EXTREMODULAR. Un consultor técnico se pondrá en contacto contigo en menos de 24 horas.</p>
+                    <button (click)="submitted.set(false)" class="mt-8 text-emerald-600 font-bold border-b border-emerald-200 pb-1">Enviar otro mensaje</button>
+                  </div>
+                } @else {
+                  <form (submit)="onSubmit($event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="space-y-2">
+                        <label for="name" class="text-[10px] uppercase tracking-widest font-bold text-primary/60 ml-1">Nombre Completo</label>
+                        <input id="name" type="text" required class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all shadow-sm" placeholder="Ej. Juan Pérez">
+                      </div>
+                      <div class="space-y-2">
+                        <label for="phone" class="text-[10px] uppercase tracking-widest font-bold text-primary/60 ml-1">Teléfono</label>
+                        <input id="phone" type="tel" required class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all shadow-sm" placeholder="Ej. +34 600 000 000">
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="space-y-2">
+                        <label for="email" class="text-[10px] uppercase tracking-widest font-bold text-primary/60 ml-1">Email</label>
+                        <input id="email" type="email" required class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all shadow-sm" placeholder="Ej. juan@email.com">
+                      </div>
+                      <div class="space-y-2">
+                        <label for="province" class="text-[10px] uppercase tracking-widest font-bold text-primary/60 ml-1">Provincia</label>
+                        <input id="province" type="text" required class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all shadow-sm" placeholder="Ej. Madrid">
+                      </div>
+                    </div>
+
+                    <div class="space-y-2">
+                      <label for="projectType" class="text-[10px] uppercase tracking-widest font-bold text-primary/60 ml-1">Tipo de Proyecto</label>
+                      <select id="projectType" class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all shadow-sm appearance-none cursor-pointer">
+                        <option value="modelo">Modelo de Catálogo</option>
+                        <option value="medida">Proyecto a Medida</option>
+                        <option value="adaptacion">Adaptación de Proyecto Tradicional</option>
+                        <option value="otro">Otro / Consulta General</option>
+                      </select>
+                    </div>
+
+                    <div class="space-y-2">
+                      <label for="message" class="text-[10px] uppercase tracking-widest font-bold text-primary/60 ml-1">Mensaje</label>
+                      <textarea id="message" rows="5" required class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all shadow-sm" placeholder="Cuéntanos brevemente qué tienes en mente..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-5 text-lg flex justify-center items-center gap-3">
+                      Enviar Solicitud
+                      <mat-icon>send</mat-icon>
+                    </button>
+                  </form>
+                }
+              </div>
+            </div>
+
+            <!-- Info Column -->
+            <div class="col-span-12 lg:col-span-4 lg:col-start-9 space-y-12 mt-12 lg:mt-0">
+              <div>
+                <h3 class="text-xl font-bold text-primary mb-6">Contacto Directo</h3>
+                <div class="space-y-6">
+                  <div class="flex items-start gap-4">
+                    <mat-icon class="text-primary">phone</mat-icon>
+                    <div>
+                      <p class="text-xs uppercase tracking-widest font-bold text-primary/40 mb-1">Llámanos</p>
+                      <p class="text-lg font-medium text-primary">+34 900 123 456</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <mat-icon class="text-primary">email</mat-icon>
+                    <div>
+                      <p class="text-xs uppercase tracking-widest font-bold text-primary/40 mb-1">Escríbenos</p>
+                      <p class="text-lg font-medium text-primary">info&#64;extremodular.com</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <mat-icon class="text-primary">location_on</mat-icon>
+                    <div>
+                      <p class="text-xs uppercase tracking-widest font-bold text-primary/40 mb-1">Oficina Central</p>
+                      <p class="text-lg font-medium text-primary">Av. de la Innovación, 42 <br> 28001 Madrid, España</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+                <h4 class="text-lg font-bold text-primary mb-4">Horario de Atención</h4>
+                <div class="space-y-2 text-sm text-on-surface-variant font-light">
+                  <div class="flex justify-between">
+                    <span>Lunes - Jueves</span>
+                    <span>09:00 - 18:00</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Viernes</span>
+                    <span>09:00 - 15:00</span>
+                  </div>
+                  <div class="flex justify-between text-primary/40">
+                    <span>Sábados y Domingos</span>
+                    <span>Cerrado</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-8 border-t border-outline-variant/20">
+                <p class="text-sm text-on-surface-variant font-light italic">
+                  "En EXTREMODULAR, cada consulta es el primer paso de una construcción impecable. Estamos aquí para resolver tus dudas técnicas y arquitectónicas."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="py-24 bg-surface-container-lowest text-center">
+        <div class="editorial-container">
+          <h2 class="text-3xl font-bold text-primary mb-8">¿Prefieres ver nuestros modelos primero?</h2>
+          <a routerLink="/models" class="btn-secondary px-10 py-4 inline-flex items-center gap-3">
+            Explorar Catálogo
+            <mat-icon>arrow_forward</mat-icon>
+          </a>
+        </div>
+      </section>
+    </div>

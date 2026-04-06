@@ -1,0 +1,156 @@
+ <div class="bg-surface min-h-screen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="editorial-grid">
+          <!-- Left Column: Controls -->
+          <div class="col-span-12 lg:col-span-4 space-y-12">
+            <div>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-2 block">Configurador</span>
+              <h2 class="text-4xl font-extrabold text-primary">{{ configService.selectedModel()?.name }}</h2>
+              <p class="text-on-surface-variant mt-3 font-light leading-relaxed">Personaliza cada detalle de tu futura vivienda modular.</p>
+            </div>
+
+            <!-- Model Selection -->
+            <section class="bg-surface-container-low p-8 rounded-lg">
+              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Modelo de Vivienda</h3>
+              <div class="grid grid-cols-2 gap-4">
+                @for (model of dataService.models(); track model.id) {
+                  <button 
+                    (click)="configService.setModel(model.id)"
+                    [class.bg-primary]="configService.selectedModel()?.id === model.id"
+                    [class.text-on-primary]="configService.selectedModel()?.id === model.id"
+                    [class.bg-surface-container-lowest]="configService.selectedModel()?.id !== model.id"
+                    [class.text-on-surface-variant]="configService.selectedModel()?.id !== model.id"
+                    class="p-4 rounded-md text-center transition-all duration-300 active:scale-95 shadow-ambient">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">{{ model.name }}</span>
+                  </button>
+                }
+              </div>
+            </section>
+
+            <!-- Modules -->
+            @if (configService.selectedModel()?.id === 'm4') {
+              <section class="bg-surface-container-low p-8 rounded-lg">
+                <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Número de Módulos</h3>
+                <div class="flex items-center justify-between bg-surface-container-lowest p-4 rounded-md shadow-ambient">
+                  <button (click)="updateModules(-1)" [disabled]="configService.config().modules <= 1" class="w-12 h-12 rounded-md bg-secondary-container text-on-secondary-container flex items-center justify-center hover:opacity-80 disabled:opacity-30 transition-all">
+                    <span class="material-icons">remove</span>
+                  </button>
+                  <span class="text-3xl font-display font-bold text-primary">{{ configService.config().modules }}</span>
+                  <button (click)="updateModules(1)" [disabled]="configService.config().modules >= 4" class="w-12 h-12 rounded-md bg-secondary-container text-on-secondary-container flex items-center justify-center hover:opacity-80 disabled:opacity-30 transition-all">
+                    <span class="material-icons">add</span>
+                  </button>
+                </div>
+              </section>
+
+              <!-- Distribution -->
+              <section class="bg-surface-container-low p-8 rounded-lg">
+                <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Distribución</h3>
+                <div class="grid grid-cols-3 gap-3">
+                  @for (shape of ['Lineal', 'L', 'U']; track shape) {
+                    <button 
+                      (click)="configService.setDistribution($any(shape))"
+                      [class.bg-primary]="configService.config().distributionShape === shape"
+                      [class.text-on-primary]="configService.config().distributionShape === shape"
+                      [class.bg-surface-container-lowest]="configService.config().distributionShape !== shape"
+                      [class.text-on-surface-variant]="configService.config().distributionShape !== shape"
+                      class="py-4 rounded-md text-center transition-all duration-300 shadow-ambient">
+                      <span class="text-[10px] font-bold uppercase tracking-widest">{{ shape }}</span>
+                    </button>
+                  }
+                </div>
+              </section>
+            }
+
+            <!-- Packs -->
+            <section class="bg-surface-container-low p-8 rounded-lg">
+              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Packs de Acabados</h3>
+              <div class="space-y-4">
+                @for (pack of dataService.packs(); track pack.id) {
+                  <div 
+                    (click)="configService.setPack(pack.id)"
+                    (keyup.enter)="configService.setPack(pack.id)"
+                    tabindex="0"
+                    [class.bg-primary]="configService.config().packId === pack.id"
+                    [class.text-on-primary]="configService.config().packId === pack.id"
+                    [class.bg-surface-container-lowest]="configService.config().packId !== pack.id"
+                    [class.text-on-surface]="configService.config().packId !== pack.id"
+                    class="p-6 rounded-md cursor-pointer transition-all duration-300 shadow-ambient flex items-start gap-4">
+                    <div class="flex-1">
+                      <h4 class="text-sm font-bold uppercase tracking-wider">{{ pack.name }}</h4>
+                      <p class="text-xs mt-2 opacity-70 font-light leading-relaxed">{{ pack.description }}</p>
+                    </div>
+                    @if (configService.config().packId === pack.id) {
+                      <span class="material-icons text-on-primary">check_circle</span>
+                    }
+                  </div>
+                }
+              </div>
+            </section>
+
+            <!-- Extras -->
+            <section class="bg-surface-container-low p-8 rounded-lg">
+              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Extras</h3>
+              <div class="space-y-4">
+                @for (extra of dataService.extras(); track extra.id) {
+                  <label class="flex items-center p-4 bg-surface-container-lowest rounded-md cursor-pointer transition-all duration-300 shadow-ambient group">
+                    <input type="checkbox" 
+                           [checked]="hasExtra(extra.id)"
+                           (change)="configService.toggleExtra(extra)"
+                           class="h-5 w-5 text-primary focus:ring-primary border-outline-variant rounded transition-all">
+                    <span class="ml-4 flex-1 text-sm font-medium text-on-surface group-hover:text-primary transition-colors">{{ extra.name }}</span>
+                    <span class="text-xs font-bold text-primary/60">+{{ extra.price | currency:'EUR':'symbol':'1.0-0' }}</span>
+                  </label>
+                }
+              </div>
+            </section>
+          </div>
+
+          <!-- Right Column: Visualizer & Summary -->
+          <div class="col-span-12 lg:col-span-8 mt-12 lg:mt-0 flex flex-col">
+            <!-- 3D Visualizer Mock -->
+            <div class="bg-surface-container-low rounded-lg aspect-[16/10] flex-1 relative overflow-hidden shadow-ambient-lg flex items-center justify-center">
+              <img [src]="configService.selectedModel()?.images?.[0]" alt="Visualizador 3D" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale-[0.2] contrast-110" referrerpolicy="no-referrer">
+              
+              <div class="relative z-10 glass-panel p-10 rounded-lg border border-white/30 max-w-md mx-auto text-center shadow-ambient-lg">
+                <span class="material-icons text-5xl text-primary mb-4">view_in_ar</span>
+                <h3 class="text-2xl font-display font-bold text-primary">Visualizador 3D</h3>
+                <p class="text-on-surface-variant mt-2 font-light">
+                  Explora tu diseño en tiempo real. <br>
+                  <span class="font-medium text-primary/80">Módulos: {{ configService.config().modules }} | {{ configService.config().distributionShape }}</span>
+                </p>
+                <div class="mt-8 pt-8 border-t border-primary/10">
+                  <p class="text-[10px] uppercase tracking-[0.3em] text-primary/40 font-bold">Integración Arquitectónica Activa</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Price Summary -->
+            <div class="mt-12 glass-panel p-10 rounded-lg shadow-ambient-lg flex flex-col sm:flex-row items-center justify-between gap-8 border border-white/40">
+              <div class="text-center sm:text-left">
+                <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold block mb-2">Inversión Estimada</span>
+                <p class="text-5xl font-display font-bold text-primary tracking-tighter">{{ configService.totalPrice() | currency:'EUR':'symbol':'1.0-0' }}</p>
+                <div class="flex items-center gap-4 mt-3 text-on-surface-variant/60">
+                  <span class="text-xs font-medium uppercase tracking-widest">{{ configService.totalArea() }} m²</span>
+                  <span class="w-1 h-1 rounded-full bg-primary/20"></span>
+                  <span class="text-xs font-medium uppercase tracking-widest">{{ configService.selectedPack()?.name }} Pack</span>
+                </div>
+              </div>
+              
+              @if (requested()) {
+                <div class="bg-primary/5 px-8 py-4 rounded-md border border-primary/10 animate-in zoom-in duration-500">
+                  <p class="text-primary font-bold text-sm flex items-center gap-2">
+                    <span class="material-icons text-emerald-500">check_circle</span>
+                    Solicitud enviada con éxito
+                  </p>
+                </div>
+              } @else {
+                <button (click)="requestQuote()" class="btn-primary w-full sm:w-auto px-12 py-5 text-lg group/btn">
+                  <span>Solicitar Presupuesto</span>
+                  <span class="material-icons ml-3 transition-transform group-hover/btn:translate-x-1">send</span>
+                </button>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

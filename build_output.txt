@@ -1,0 +1,103 @@
+
+> ai-studio-angular-app@0.0.0 build
+> ng build
+
+[33m❯[39m Building...
+[32m✔[39m Building...
+[35mBrowser bundles[39m     
+[1mInitial chunk files[22m [2m | [22m[1mNames[22m                 [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m
+[32mmain-ENZPWCON.js[39m    [2m | [22m[2mmain[22m                  [2m | [22m[36m272.89 kB[39m[2m | [22m               [36m43.28 kB[39m
+[32mchunk-UEZ4PQ2G.js[39m   [2m | [22m[2m-[22m                     [2m | [22m[36m191.04 kB[39m[2m | [22m               [36m55.98 kB[39m
+[32mchunk-OC3V3JWM.js[39m   [2m | [22m[2m-[22m                     [2m | [22m [36m75.65 kB[39m[2m | [22m               [36m18.80 kB[39m
+[32mstyles-ZEON6BY3.css[39m [2m | [22m[2mstyles[22m                [2m | [22m [36m66.49 kB[39m[2m | [22m                [36m7.70 kB[39m
+[32mchunk-EORS2OFE.js[39m   [2m | [22m[2m-[22m                     [2m | [22m [36m32.28 kB[39m[2m | [22m                [36m7.02 kB[39m
+[32mchunk-HUIX62AO.js[39m   [2m | [22m[2m-[22m                     [2m | [22m  [36m1.82 kB[39m[2m | [22m              [36m815 bytes[39m
+
+[1m [22m                   [2m | [22m[1mInitial total[22m         [2m | [22m[1m[93m640.17 kB[39m[22m[2m | [22m              [1m133.60 kB[22m
+
+[1mLazy chunk files[22m    [2m | [22m[1mNames[22m                 [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m
+[32mchunk-BWQNRMZC.js[39m   [2m | [22m[2m-[22m                     [2m | [22m [36m12.67 kB[39m[2m | [22m                [36m3.84 kB[39m
+[32mchunk-5MT6EJCC.js[39m   [2m | [22m[2mconfigurator-component[22m[2m | [22m [36m10.45 kB[39m[2m | [22m                [36m2.84 kB[39m
+[32mchunk-BGPOGEEX.js[39m   [2m | [22m[2mhome-component[22m        [2m | [22m [36m10.08 kB[39m[2m | [22m                [36m3.22 kB[39m
+[32mchunk-HYQDMVYX.js[39m   [2m | [22m[2mcontact-component[22m     [2m | [22m  [36m7.87 kB[39m[2m | [22m                [36m2.40 kB[39m
+[32mchunk-TKLTBDQU.js[39m   [2m | [22m[2mprocess-component[22m     [2m | [22m  [36m7.86 kB[39m[2m | [22m                [36m2.38 kB[39m
+[32mchunk-EFXYWUBA.js[39m   [2m | [22m[2mabout-component[22m       [2m | [22m  [36m6.71 kB[39m[2m | [22m                [36m2.29 kB[39m
+[32mchunk-KAWEO6UP.js[39m   [2m | [22m[2mcustom-component[22m      [2m | [22m  [36m6.46 kB[39m[2m | [22m                [36m2.25 kB[39m
+[32mchunk-GP5ALABE.js[39m   [2m | [22m[2mcatalog-component[22m     [2m | [22m  [36m3.86 kB[39m[2m | [22m                [36m1.55 kB[39m
+[32mchunk-JDWR5DZG.js[39m   [2m | [22m[2m-[22m                     [2m | [22m  [36m1.34 kB[39m[2m | [22m              [36m534 bytes[39m
+
+
+[35mServer bundles[39m      
+[1mInitial chunk files[22m [2m | [22m[1mNames[22m                 [2m | [22m [1mRaw size[22m
+[32mmain.server.mjs[39m     [2m | [22m[2mmain.server[22m           [2m | [22m[36m937.77 kB[39m[2m | [22m                       
+[32mserver.mjs[39m          [2m | [22m[2mserver[22m                [2m | [22m[36m812.09 kB[39m[2m | [22m                       
+[32mpolyfills.server.mjs[39m[2m | [22m[2mpolyfills.server[22m      [2m | [22m[36m233.68 kB[39m[2m | [22m                       
+[32mchunk-RJZ2QLRT.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m[36m211.53 kB[39m[2m | [22m                       
+[32mchunk-JCVCWKIL.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m [36m75.73 kB[39m[2m | [22m                       
+[32mchunk-23P26O5E.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m [36m32.34 kB[39m[2m | [22m                       
+[32mchunk-PNF6NEHD.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m  [36m1.85 kB[39m[2m | [22m                       
+[32mchunk-LQBROMNA.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m  [36m1.40 kB[39m[2m | [22m                       
+[32mchunk-BBJ2OP3G.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m  [36m1.34 kB[39m[2m | [22m                       
+
+[1mLazy chunk files[22m    [2m | [22m[1mNames[22m                 [2m | [22m [1mRaw size[22m
+[32mchunk-MRTEFNBA.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m [36m67.74 kB[39m[2m | [22m                       
+[32mchunk-QPD2CCWR.mjs[39m  [2m | [22m[2mindex[22m                 [2m | [22m [36m20.63 kB[39m[2m | [22m                       
+[32mchunk-GM5FTG32.mjs[39m  [2m | [22m[2mindex[22m                 [2m | [22m [36m18.18 kB[39m[2m | [22m                       
+[32mchunk-ZUQVIPF7.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m [36m12.70 kB[39m[2m | [22m                       
+[32mchunk-BP7AI3FB.mjs[39m  [2m | [22m[2mxhr2[22m                  [2m | [22m [36m12.17 kB[39m[2m | [22m                       
+[32mchunk-FYOC2D2A.mjs[39m  [2m | [22m[2mxhr2[22m                  [2m | [22m [36m12.07 kB[39m[2m | [22m                       
+[32mchunk-YC25OC2U.mjs[39m  [2m | [22m[2mconfigurator-component[22m[2m | [22m [36m10.51 kB[39m[2m | [22m                       
+[32mchunk-A4EIJBIL.mjs[39m  [2m | [22m[2mhome-component[22m        [2m | [22m [36m10.15 kB[39m[2m | [22m                       
+[32mchunk-2HVJVI7E.mjs[39m  [2m | [22m[2mcontact-component[22m     [2m | [22m  [36m7.93 kB[39m[2m | [22m                       
+[32mchunk-RY5TSH5I.mjs[39m  [2m | [22m[2mprocess-component[22m     [2m | [22m  [36m7.92 kB[39m[2m | [22m                       
+[32mchunk-4VZFJ4S6.mjs[39m  [2m | [22m[2mabout-component[22m       [2m | [22m  [36m6.77 kB[39m[2m | [22m                       
+[32mchunk-7JTILHJ5.mjs[39m  [2m | [22m[2mcustom-component[22m      [2m | [22m  [36m6.53 kB[39m[2m | [22m                       
+[32mchunk-MGVTDSFY.mjs[39m  [2m | [22m[2mmultipart-parser[22m      [2m | [22m  [36m4.48 kB[39m[2m | [22m                       
+[32mchunk-QEAKPCHA.mjs[39m  [2m | [22m[2mcatalog-component[22m     [2m | [22m  [36m3.92 kB[39m[2m | [22m                       
+[32mchunk-4A4SVTYZ.mjs[39m  [2m | [22m[2m-[22m                     [2m | [22m  [36m1.41 kB[39m[2m | [22m                       
+
+[35mPrerendered 7 static routes.[39m
+Application bundle generation complete. [9.099 seconds] - 2026-04-06T15:29:22.026Z
+
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: CurrencyPipe is not used within the template of HomeComponent[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/home/home.component.ts:11:24:
+[37m      11 │   imports: [RouterLink, [32mCurrencyPipe[37m, MatIconModule],
+         ╵                         [32m~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mbundle initial exceeded maximum budget. Budget 500.00 kB was not met by 140.18 kB with a total of 640.17 kB.[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mModule 'debug' used by 'node_modules/https-proxy-agent/dist/index.js' is not ESM[0m
+
+  CommonJS or AMD dependencies can cause optimization bailouts.
+  For more information see: [4mhttps://angular.dev/tools/cli/build#configuring-commonjs-dependencies[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mModule 'agent-base' used by 'node_modules/https-proxy-agent/dist/index.js' is not ESM[0m
+
+  CommonJS or AMD dependencies can cause optimization bailouts.
+  For more information see: [4mhttps://angular.dev/tools/cli/build#configuring-commonjs-dependencies[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mModule 'p-retry' used by 'node_modules/@google/genai/dist/node/index.mjs' is not ESM[0m
+
+  CommonJS or AMD dependencies can cause optimization bailouts.
+  For more information see: [4mhttps://angular.dev/tools/cli/build#configuring-commonjs-dependencies[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mModule 'google-auth-library' used by 'node_modules/@google/genai/dist/node/index.mjs' is not ESM[0m
+
+  CommonJS or AMD dependencies can cause optimization bailouts.
+  For more information see: [4mhttps://angular.dev/tools/cli/build#configuring-commonjs-dependencies[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mModule 'web-streams-polyfill/dist/ponyfill.es2018.js' used by 'node_modules/fetch-blob/streams.cjs' is not ESM[0m
+
+  CommonJS or AMD dependencies can cause optimization bailouts.
+  For more information see: [4mhttps://angular.dev/tools/cli/build#configuring-commonjs-dependencies[0m
+
+[39m[22m
+Output location: C:\Users\alons\Desktop\Why\Clientes\Extremodular\web-extremodular\dist\app
+

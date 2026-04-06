@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Public+Sans:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand Colors */
+  --color-primary: #173809;
+  --color-primary-container: #2d4f1e;
+  --color-on-primary: #ffffff;
+  
+  /* Surface Hierarchy */
+  --color-surface: #faf9f8;
+  --color-surface-container-low: #f4f3f2;
+  --color-surface-container: #eeeeed;
+  --color-surface-container-highest: #e3e2e1;
+  --color-surface-container-lowest: #ffffff;
+  
+  /* Accents */
+  --color-secondary-container: #eae2d2;
+  --color-on-secondary-container: #696457;
+  
+  /* Text & Variants */
+  --color-on-surface: #1a1c1c;
+  --color-on-surface-variant: #43493e;
+  --color-outline-variant: #c3c8bb;
+
+  /* Custom Radii */
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-on-surface;
+    letter-spacing: -0.02em;
+  }
+
+  /* No-Line Rule: Section boundaries via background shifts */
+  section {
+    @apply border-none;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-surface/70 backdrop-blur-[20px];
+  }
+
+  .editorial-grid {
+    @apply grid grid-cols-12 gap-8;
+  }
+
+  .editorial-container {
+    @apply max-w-7xl mx-auto px-6 sm:px-10 lg:px-16;
+  }
+
+  .text-editorial-body {
+    @apply font-sans font-light text-on-surface-variant leading-relaxed tracking-wide;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-on-primary px-6 py-4 rounded-md font-medium transition-all hover:opacity-90 active:scale-[0.98] shadow-ambient;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-container text-on-secondary-container px-6 py-4 rounded-md font-medium transition-all hover:opacity-90 active:scale-[0.98];
+  }
+
+  .card-tonal {
+    @apply bg-surface-container-lowest rounded-lg transition-all;
+  }
+
+  .ghost-border {
+    @apply border border-outline-variant/15;
+  }
+}
+
+@utility shadow-ambient {
+  box-shadow: 0 20px 40px -10px rgba(26, 28, 28, 0.1);
+}
+
+@utility shadow-ambient-lg {
+  box-shadow: 0 30px 60px -12px rgba(26, 28, 28, 0.1);
+}
