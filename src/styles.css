@@ -8,26 +8,26 @@
   --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
-  /* Brand Colors */
-  --color-primary: #173809;
-  --color-primary-container: #2d4f1e;
+  /* Brand Colors — Azul marino Extremodular */
+  --color-primary: #0f2d5e;              /* azul marino oscuro, del logo */
+  --color-primary-container: #1e4480;   /* azul medio contenedor */
   --color-on-primary: #ffffff;
-  
-  /* Surface Hierarchy */
-  --color-surface: #faf9f8;
-  --color-surface-container-low: #f4f3f2;
-  --color-surface-container: #d4d3d2;
-  --color-surface-container-highest: #e3e2e1;
+
+  /* Surface Hierarchy — neutros fríos con toque azulado */
+  --color-surface: #f5f7fa;             /* blanco con velo azul muy sutil */
+  --color-surface-container-low: #eaeff6;
+  --color-surface-container: #cdd5e0;
+  --color-surface-container-highest: #d8e0ec;
   --color-surface-container-lowest: #ffffff;
-  
-  /* Accents */
-  --color-secondary-container: #eae2d2;
-  --color-on-secondary-container: #696457;
-  
+
+  /* Accents — azul pálido/grisáceo para contraste */
+  --color-secondary-container: #dde4f0;
+  --color-on-secondary-container: #4a5a72;
+
   /* Text & Variants */
-  --color-on-surface: #1a1c1c;
-  --color-on-surface-variant: #43493e;
-  --color-outline-variant: #c3c8bb;
+  --color-on-surface: #181c20;          /* negro con matiz azul */
+  --color-on-surface-variant: #3a4455;  /* texto secundario, azul oscuro suave */
+  --color-outline-variant: #b4bece;     /* bordes, azul grisáceo */
 
   /* Custom Radii */
   --radius-md: 0.75rem;
