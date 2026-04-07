@@ -1,0 +1,91 @@
+<section class="relative overflow-hidden bg-primary py-20 pb-16">
+  
+  <!-- glow -->
+  <div class="pointer-events-none absolute right-[-4rem] top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 
+              bg-[radial-gradient(circle,rgba(30,68,128,0.5)_0%,transparent_70%)]">
+  </div>
+
+  <div class="editorial-container flex items-center justify-between gap-10">
+    
+    <div class="relative z-10 flex flex-col gap-6 max-w-2xl">
+      
+      <!-- badge -->
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 
+                  text-white/80 text-xs font-medium tracking-wider uppercase 
+                  px-3 py-1.5 rounded-full w-fit">
+        <span class="material-icons text-sm">cookie</span>
+        Cookies
+      </div>
+
+      <!-- título -->
+      <h1 class="text-white font-extrabold leading-tight tracking-tight
+                 text-[clamp(2.25rem,5vw,3.5rem)]">
+        Política de Cookies
+      </h1>
+
+      <!-- intro -->
+      <p class="text-white/80 font-light leading-relaxed max-w-xl">
+        Utilizamos cookies propias y de terceros para garantizar el correcto funcionamiento 
+        del sitio web, mejorar la experiencia del usuario y analizar el uso de nuestros servicios.
+      </p>
+
+      <!-- explicación -->
+      <p class="text-white/70 font-light leading-relaxed max-w-xl">
+        A través de esta política, le informamos de forma clara y detallada sobre qué son las cookies, 
+        qué tipos utilizamos y cómo puede gestionarlas o desactivarlas en cualquier momento.
+      </p>
+
+      <!-- bloques -->
+      <div class="grid sm:grid-cols-2 gap-3 pt-2 text-sm">
+        
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">settings</span>
+          <span>Cookies técnicas necesarias para el funcionamiento</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">analytics</span>
+          <span>Cookies de análisis y medición de uso</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">ads_click</span>
+          <span>Cookies de personalización y publicidad</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">tune</span>
+          <span>Configuración y gestión del consentimiento</span>
+        </div>
+
+      </div>
+
+      <!-- nota -->
+      <div class="mt-2 p-4 rounded-md border border-white/10 bg-white/5 text-sm text-white/70 max-w-xl">
+        Puede aceptar, rechazar o configurar el uso de cookies en cualquier momento 
+        a través del panel de configuración disponible en el sitio web.
+      </div>
+
+      <!-- meta -->
+      <div class="flex items-center gap-4 pt-2">
+        <span class="text-white/50 text-xs tracking-wide">
+          Última actualización: {{ lastUpdated }}
+        </span>
+
+        <span class="text-white/30 text-xs">•</span>
+
+        <span class="text-white/50 text-xs">
+          Lectura estimada: 2–3 minutos
+        </span>
+      </div>
+
+    </div>
+
+    <!-- icono -->
+    <div class="hidden sm:flex w-32 h-32 rounded-full border border-white/10 
+                bg-white/5 items-center justify-center">
+      <span class="material-icons text-6xl text-white/25">cookie</span>
+    </div>
+
+  </div>
+</section>

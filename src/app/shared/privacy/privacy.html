@@ -1,0 +1,92 @@
+<section class="relative overflow-hidden bg-primary py-20 pb-16">
+  
+  <!-- glow -->
+  <div class="pointer-events-none absolute right-[-4rem] top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 
+              bg-[radial-gradient(circle,rgba(30,68,128,0.5)_0%,transparent_70%)]">
+  </div>
+
+  <div class="editorial-container flex items-center justify-between gap-10">
+    
+    <div class="relative z-10 flex flex-col gap-6 max-w-2xl">
+      
+      <!-- badge -->
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 
+                  text-white/80 text-xs font-medium tracking-wider uppercase 
+                  px-3 py-1.5 rounded-full w-fit">
+        <span class="material-icons text-sm">lock</span>
+        Protección de datos
+      </div>
+
+      <!-- título -->
+      <h1 class="text-white font-extrabold leading-tight tracking-tight
+                 text-[clamp(2.25rem,5vw,3.5rem)]">
+        Política de<br>Privacidad
+      </h1>
+
+      <!-- intro fuerte -->
+      <p class="text-white/80 font-light leading-relaxed text-base max-w-xl">
+        En <strong>Extremodular S.L.</strong> tratamos sus datos personales con la máxima 
+        responsabilidad, garantizando su confidencialidad, integridad y uso conforme al 
+        <strong>Reglamento General de Protección de Datos (RGPD)</strong> y la normativa española vigente.
+      </p>
+
+      <!-- explicación clara -->
+      <p class="text-white/70 font-light leading-relaxed max-w-xl">
+        Esta política describe qué datos recopilamos, con qué finalidad los utilizamos, 
+        cuál es la base legal que legitima su tratamiento y qué derechos le asisten como usuario.
+      </p>
+
+      <!-- bloques informativos -->
+      <div class="grid sm:grid-cols-2 gap-3 pt-2 text-sm">
+        
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">inventory_2</span>
+          <span>Datos recopilados a través de formularios y navegación web</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">gavel</span>
+          <span>Tratamientos basados en consentimiento, contrato u obligación legal</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">verified_user</span>
+          <span>Derechos de acceso, rectificación, supresión y portabilidad</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">shield</span>
+          <span>Medidas técnicas para garantizar la seguridad de la información</span>
+        </div>
+
+      </div>
+
+      <!-- bloque legal destacado -->
+      <div class="mt-2 p-4 rounded-md border border-white/10 bg-white/5 text-sm text-white/70 max-w-xl">
+        Esta política se aplica a todos los tratamientos de datos realizados a través de este sitio web 
+        y será actualizada cuando sea necesario para adaptarse a cambios normativos o de servicio.
+      </div>
+
+      <!-- meta -->
+      <div class="flex items-center gap-4 pt-2">
+        <span class="text-white/50 text-xs tracking-wide">
+          Última actualización: {{ lastUpdated }}
+        </span>
+
+        <span class="text-white/30 text-xs">•</span>
+
+        <span class="text-white/50 text-xs">
+          Lectura estimada: 4–5 minutos
+        </span>
+      </div>
+
+    </div>
+
+    <!-- icono -->
+    <div class="hidden sm:flex w-32 h-32 rounded-full border border-white/10 
+                bg-white/5 items-center justify-center">
+      <span class="material-icons text-6xl text-white/25">security</span>
+    </div>
+
+  </div>
+</section>

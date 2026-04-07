@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, HostListener  } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { ChatbotComponent } from './features/chatbot/chatbot.component';
 import { Header } from './core/components/header/header';
 import { Footer } from './core/components/footer/footer';
@@ -7,7 +7,7 @@ import { Footer } from './core/components/footer/footer';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, ChatbotComponent, Header, Footer],
+  imports: [RouterOutlet, ChatbotComponent, Header, Footer],
   templateUrl: './app.html',
 })
 export class App {

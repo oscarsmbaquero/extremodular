@@ -46,5 +46,26 @@ export const routes: Routes = [
         (m) => m.ContactComponent,
       ),
   },
+  {
+    path: "cookies",
+    loadComponent: () =>
+      import("./shared/cookies/cookies").then(
+        (m) => m.Cookies,
+      ),
+  },
+  {
+    path: "privacy",
+    loadComponent: () =>
+      import("./shared/privacy/privacy").then(
+        (m) => m.PrivacyComponent,
+      ),
+  },
+  {
+    path: "legal",
+    loadComponent: () =>
+      import("./shared/legal/legal").then(
+        (m) => m.Legal,
+      ),
+  },
   { path: "**", redirectTo: "" },
 ];

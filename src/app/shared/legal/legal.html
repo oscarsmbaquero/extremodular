@@ -1,0 +1,92 @@
+<section class="relative overflow-hidden bg-primary py-20 pb-16">
+  
+  <!-- glow -->
+  <div class="pointer-events-none absolute right-[-4rem] top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 
+              bg-[radial-gradient(circle,rgba(30,68,128,0.5)_0%,transparent_70%)]">
+  </div>
+
+  <div class="editorial-container flex items-center justify-between gap-10">
+    
+    <div class="relative z-10 flex flex-col gap-6 max-w-2xl">
+      
+      <!-- badge -->
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 
+                  text-white/80 text-xs font-medium tracking-wider uppercase 
+                  px-3 py-1.5 rounded-full w-fit">
+        <span class="material-icons text-sm">gavel</span>
+        Aviso legal
+      </div>
+
+      <!-- título -->
+      <h1 class="text-white font-extrabold leading-tight tracking-tight
+                 text-[clamp(2.25rem,5vw,3.5rem)]">
+        Aviso Legal
+      </h1>
+
+      <!-- intro -->
+      <p class="text-white/80 font-light leading-relaxed max-w-xl">
+        Este Aviso Legal regula el acceso, navegación y uso del sitio web titularidad de 
+        <strong>Extremodular S.L.</strong>, estableciendo las condiciones de uso aplicables a los usuarios.
+      </p>
+
+      <!-- explicación -->
+      <p class="text-white/70 font-light leading-relaxed max-w-xl">
+        El acceso a este sitio implica la aceptación de las presentes condiciones, así como 
+        de la normativa vigente en materia de comercio electrónico, propiedad intelectual 
+        y responsabilidad digital.
+      </p>
+
+      <!-- bloques -->
+      <div class="grid sm:grid-cols-2 gap-3 pt-2 text-sm">
+        
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">business</span>
+          <span>Identificación del titular del sitio web</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">policy</span>
+          <span>Condiciones de uso del servicio</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">copyright</span>
+          <span>Derechos de propiedad intelectual e industrial</span>
+        </div>
+
+        <div class="flex gap-2 items-start text-white/70">
+          <span class="material-icons text-base text-white/40 mt-0.5">report</span>
+          <span>Limitación de responsabilidad del titular</span>
+        </div>
+
+      </div>
+
+      <!-- nota -->
+      <div class="mt-2 p-4 rounded-md border border-white/10 bg-white/5 text-sm text-white/70 max-w-xl">
+        El titular se reserva el derecho a modificar en cualquier momento los contenidos 
+        del sitio web, así como las presentes condiciones legales.
+      </div>
+
+      <!-- meta -->
+      <div class="flex items-center gap-4 pt-2">
+        <span class="text-white/50 text-xs tracking-wide">
+          Última actualización: {{ lastUpdated }}
+        </span>
+
+        <span class="text-white/30 text-xs">•</span>
+
+        <span class="text-white/50 text-xs">
+          Lectura estimada: 3–4 minutos
+        </span>
+      </div>
+
+    </div>
+
+    <!-- icono -->
+    <div class="hidden sm:flex w-32 h-32 rounded-full border border-white/10 
+                bg-white/5 items-center justify-center">
+      <span class="material-icons text-6xl text-white/25">gavel</span>
+    </div>
+
+  </div>
+</section>
