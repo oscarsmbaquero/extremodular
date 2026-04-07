@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Public+Sans:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
@@ -9,25 +8,25 @@
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
   /* Brand Colors — Azul marino Extremodular */
-  --color-primary: #0f2d5e;              /* azul marino oscuro, del logo */
-  --color-primary-container: #1e4480;   /* azul medio contenedor */
+  --color-primary: #0f2d5e;
+  --color-primary-container: #1e4480;
   --color-on-primary: #ffffff;
 
-  /* Surface Hierarchy — neutros fríos con toque azulado */
-  --color-surface: #f5f7fa;             /* blanco con velo azul muy sutil */
+  /* Surface Hierarchy */
+  --color-surface: #f5f7fa;
   --color-surface-container-low: #eaeff6;
   --color-surface-container: #cdd5e0;
   --color-surface-container-highest: #d8e0ec;
   --color-surface-container-lowest: #ffffff;
 
-  /* Accents — azul pálido/grisáceo para contraste */
+  /* Accents */
   --color-secondary-container: #dde4f0;
   --color-on-secondary-container: #4a5a72;
 
   /* Text & Variants */
-  --color-on-surface: #181c20;          /* negro con matiz azul */
-  --color-on-surface-variant: #3a4455;  /* texto secundario, azul oscuro suave */
-  --color-outline-variant: #b4bece;     /* bordes, azul grisáceo */
+  --color-on-surface: #181c20;
+  --color-on-surface-variant: #3a4455;
+  --color-outline-variant: #b4bece;
 
   /* Custom Radii */
   --radius-md: 0.75rem;
@@ -36,8 +35,21 @@
 }
 
 @layer base {
+  html {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
   body {
     @apply bg-surface text-on-surface font-sans antialiased;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -45,7 +57,6 @@
     letter-spacing: -0.02em;
   }
 
-  /* No-Line Rule: Section boundaries via background shifts */
   section {
     @apply border-none;
   }
@@ -57,11 +68,11 @@
   }
 
   .editorial-grid {
-    @apply grid grid-cols-12 gap-8;
+    @apply grid grid-cols-12 gap-4 lg:gap-8;
   }
 
   .editorial-container {
-    @apply max-w-7xl mx-auto px-6 sm:px-10 lg:px-16;
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16;
   }
 
   .text-editorial-body {
@@ -92,7 +103,7 @@
 @utility shadow-ambient-lg {
   box-shadow: 0 30px 60px -12px rgba(26, 28, 28, 0.1);
 }
- /* animacion de inicio */
+
 @utility fill-mode-both {
   animation-fill-mode: both;
 }

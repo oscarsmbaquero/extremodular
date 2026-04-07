@@ -27,7 +27,18 @@
 
     <!-- Hamburger -->
     <button (click)="toggleMenu()" class="sm:hidden p-2 rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-low" aria-label="Menu principal">
-      <span class="material-icons text-xl">{{ menuOpen() ? 'close' : 'menu' }}</span>
+      @if (menuOpen()) {
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6L6 18"></path>
+          <path d="M6 6L18 18"></path>
+        </svg>
+      } @else {
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+      }
     </button>
   </div>
 

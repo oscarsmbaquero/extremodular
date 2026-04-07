@@ -4,7 +4,8 @@
     <div class="absolute inset-0 z-0">
       <img
         src="https://res.cloudinary.com/facturas/image/upload/q_auto/f_auto/v1775388172/Web%20Extremodular/Generated_Image_March_15_2026_-_1_41PM_kxbbfc.png"
-        alt="Vivienda Modular Moderna" class="w-full h-full object-cover grayscale-[0.3] contrast-110"
+        alt="Vivienda Modular Moderna"
+        class="w-full h-full object-cover grayscale-[0.3] contrast-110"
         referrerpolicy="no-referrer">
       <div class="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent"></div>
     </div>
@@ -12,24 +13,20 @@
     <div class="editorial-container relative z-10 pt-20">
       <div class="editorial-grid">
         <div class="col-span-12 lg:col-span-8">
-
           <span class="text-[10px] uppercase tracking-[0.4em] text-surface/60 font-bold mb-4 block
                    animate-in fade-in slide-in-from-bottom-4 duration-700 delay-0 fill-mode-both">
             Arquitectura de Precisión
           </span>
-
           <h1 class="text-6xl lg:text-8xl font-extrabold text-surface leading-[1.05] mb-8
                  animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150 fill-mode-both">
             Viviendas que <br>
             <span class="text-secondary-container italic font-medium">respiran futuro.</span>
           </h1>
-
           <p class="text-xl lg:text-2xl text-surface/80 font-light leading-relaxed max-w-2xl mb-5
                 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300 fill-mode-both">
             Construcción modular industrializada de alta gama. Eficiencia técnica, diseño de vanguardia y alma natural
             en cada módulo.
           </p>
-
           <div class="flex flex-nowrap items-center gap-3 sm:gap-6 mb-5
                   animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
             <a routerLink="/models" class="btn-primary px-4 py-3 text-sm sm:px-10 sm:py-5 sm:text-lg flex items-center gap-2 sm:gap-3 whitespace-nowrap">
@@ -41,7 +38,6 @@
               Proyecto a Medida
             </a>
           </div>
-
         </div>
       </div>
     </div>
@@ -64,10 +60,15 @@
             garantizando un control total sobre el proceso constructivo.
           </p>
         </div>
+
+        <!-- Imagen centrada en móvil, alineada a la derecha en desktop -->
         <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="relative aspect-square rounded-2xl overflow-hidden shadow-ambient-lg">
-            <img src="https://picsum.photos/seed/architecture-detail/1000/1000" alt="Detalle Arquitectónico"
-              class="w-full h-full object-cover" referrerpolicy="no-referrer">
+          <div class="relative aspect-square w-full max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden shadow-ambient-lg">
+            <img
+              src="https://picsum.photos/seed/architecture-detail/1000/1000"
+              alt="Detalle Arquitectónico"
+              class="w-full h-full object-cover"
+              referrerpolicy="no-referrer">
             <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
           </div>
         </div>
@@ -83,20 +84,20 @@
         <h2 class="text-4xl lg:text-5xl font-extrabold text-primary">Construcción Inteligente</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="card-tonal p-10 group hover:bg-surface-container transition-all duration-500">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div class="card-tonal p-8 lg:p-10 group hover:bg-surface-container transition-all duration-500">
           <mat-icon class="text-4xl text-primary mb-6 scale-125">speed</mat-icon>
           <h3 class="text-xl font-bold text-primary mb-4">Rapidez de Ejecución</h3>
           <p class="text-on-surface-variant font-light leading-relaxed">Reducimos los tiempos de entrega hasta en un 60%
             respecto a la construcción tradicional gracias a la fabricación en paralelo.</p>
         </div>
-        <div class="card-tonal p-10 group hover:bg-surface-container transition-all duration-500">
+        <div class="card-tonal p-8 lg:p-10 group hover:bg-surface-container transition-all duration-500">
           <mat-icon class="text-4xl text-primary mb-6 scale-125">precision_manufacturing</mat-icon>
           <h3 class="text-xl font-bold text-primary mb-4">Control de Calidad</h3>
           <p class="text-on-surface-variant font-light leading-relaxed">Fabricación en entorno controlado que elimina
             imprevistos y garantiza acabados milimétricos imposibles en obra.</p>
         </div>
-        <div class="card-tonal p-10 group hover:bg-surface-container transition-all duration-500">
+        <div class="card-tonal p-8 lg:p-10 group hover:bg-surface-container transition-all duration-500">
           <mat-icon class="text-4xl text-primary mb-6 scale-125">eco</mat-icon>
           <h3 class="text-xl font-bold text-primary mb-4">Sostenibilidad Real</h3>
           <p class="text-on-surface-variant font-light leading-relaxed">Minimizamos residuos y optimizamos el uso de
@@ -121,16 +122,15 @@
 
       <div class="editorial-grid">
         @for (model of dataService.models().slice(0, 3); track model.id) {
-        <div class="col-span-12 md:col-span-4 group cursor-pointer" [routerLink]="['/models']">
-          <div
-            class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-ambient group-hover:shadow-ambient-lg transition-all duration-700">
-            <img [src]="model.images[0]" [alt]="model.name"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-              referrerpolicy="no-referrer">
+          <div class="col-span-12 md:col-span-4 group cursor-pointer" [routerLink]="['/models']">
+            <div class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-ambient group-hover:shadow-ambient-lg transition-all duration-700">
+              <img [src]="model.images[0]" [alt]="model.name"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                referrerpolicy="no-referrer">
+            </div>
+            <h3 class="text-2xl font-display font-bold text-primary">{{ model.name }}</h3>
+            <p class="text-on-surface-variant font-light mt-2">{{ model.area }} m² · {{ model.distribution }}</p>
           </div>
-          <h3 class="text-2xl font-display font-bold text-primary">{{ model.name }}</h3>
-          <p class="text-on-surface-variant font-light mt-2">{{ model.area }} m² · {{ model.distribution }}</p>
-        </div>
         }
       </div>
     </div>
@@ -169,7 +169,7 @@
         <h2 class="text-4xl lg:text-5xl font-extrabold text-primary">El Proceso Extremodular</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="relative p-8 border-l-2 border-primary/10 hover:border-primary transition-colors">
           <span class="text-5xl font-display font-black text-primary/5 absolute -top-4 -left-4">01</span>
           <h4 class="text-lg font-bold text-primary mb-3">Estudio Inicial</h4>
@@ -205,8 +205,9 @@
   <section class="py-12 bg-surface-container-lowest">
     <div class="editorial-container text-center">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-5xl lg:text-7xl font-extrabold text-primary mb-12 tracking-tighter">¿Empezamos a construir
-          <br>tu futuro?</h2>
+        <h2 class="text-5xl lg:text-7xl font-extrabold text-primary mb-12 tracking-tighter">
+          ¿Empezamos a construir <br>tu futuro?
+        </h2>
         <div class="flex flex-wrap justify-center gap-6">
           <a routerLink="/contact" class="btn-primary px-12 py-6 text-xl">
             Contactar con un experto
