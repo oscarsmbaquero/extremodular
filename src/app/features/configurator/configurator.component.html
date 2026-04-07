@@ -76,8 +76,8 @@
                     [class.text-on-surface]="configService.config().packId !== pack.id"
                     class="p-6 rounded-md cursor-pointer transition-all duration-300 shadow-ambient flex items-start gap-4">
                     <div class="flex-1">
-                      <h4 class="text-sm font-bold uppercase tracking-wider">{{ pack.name }}</h4>
-                      <p class="text-xs mt-2 opacity-70 font-light leading-relaxed">{{ pack.description }}</p>
+                      <h4 class="text-sm font-bold uppercase tracking-wider text-inherit">{{ pack.name }}</h4>
+                      <p class="text-xs mt-2 opacity-70 font-light leading-relaxed text-inherit">{{ pack.description }}</p>
                     </div>
                     @if (configService.config().packId === pack.id) {
                       <span class="material-icons text-on-primary">check_circle</span>
