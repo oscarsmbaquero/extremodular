@@ -9,15 +9,127 @@
         <div class="editorial-container relative z-10">
           <div class="editorial-grid">
             <div class="col-span-12 lg:col-span-8">
-              <span class="text-[10px] uppercase tracking-[0.4em] text-surface/60 font-bold mb-4 block">Exclusividad</span>
+              <span class="text-[10px] uppercase tracking-[0.4em] text-surface/60 font-bold mb-4 block">{{ 'custom.hero.eyebrow' | translate }}</span>
               <h1 class="text-6xl lg:text-8xl font-extrabold text-surface leading-[1.05] mb-8">
-                Tu visión, <br>
-                <span class="text-secondary-container italic font-medium">sin límites.</span>
+                {{ 'custom.hero.h1a' | translate }} <br>
+                <span class="text-secondary-container italic font-medium">{{ 'custom.hero.h1b' | translate }}</span>
               </h1>
               <p class="text-xl lg:text-2xl text-surface/80 font-light leading-relaxed max-w-2xl mb-12">
-                ¿Buscas un proyecto arquitectónico único? En EXTREMODULAR desarrollamos viviendas totalmente personalizadas adaptadas a tus necesidades específicas.
+                {{ 'custom.hero.desc' | translate }}
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personalización Total -->
+      <section class="py-32 bg-surface">
+        <div class="editorial-container">
+          <div class="editorial-grid items-start">
+            <div class="col-span-12 lg:col-span-6">
+              <h2 class="text-4xl lg:text-5xl font-extrabold text-primary mb-12 leading-tight">{{ 'custom.pers.h2' | translate }}</h2>
+              <p class="text-editorial-body text-xl mb-8">
+                {{ 'custom.pers.p1' | translate }}
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+                <div class="flex items-start gap-4">
+                  <mat-icon class="text-primary">check_circle</mat-icon>
+                  <div>
+                    <h4 class="font-bold text-primary">{{ 'custom.pers.f1.title' | translate }}</h4>
+                    <p class="text-sm text-on-surface-variant font-light">{{ 'custom.pers.f1.desc' | translate }}</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <mat-icon class="text-primary">check_circle</mat-icon>
+                  <div>
+                    <h4 class="font-bold text-primary">{{ 'custom.pers.f2.title' | translate }}</h4>
+                    <p class="text-sm text-on-surface-variant font-light">{{ 'custom.pers.f2.desc' | translate }}</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <mat-icon class="text-primary">check_circle</mat-icon>
+                  <div>
+                    <h4 class="font-bold text-primary">{{ 'custom.pers.f3.title' | translate }}</h4>
+                    <p class="text-sm text-on-surface-variant font-light">{{ 'custom.pers.f3.desc' | translate }}</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <mat-icon class="text-primary">check_circle</mat-icon>
+                  <div>
+                    <h4 class="font-bold text-primary">{{ 'custom.pers.f4.title' | translate }}</h4>
+                    <p class="text-sm text-on-surface-variant font-light">{{ 'custom.pers.f4.desc' | translate }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+              <div class="bg-surface-container-low p-10 rounded-2xl shadow-ambient">
+                <h3 class="text-2xl font-bold text-primary mb-6">{{ 'custom.trad.h3' | translate }}</h3>
+                <p class="text-on-surface-variant font-light leading-relaxed mb-8">
+                  {{ 'custom.trad.p' | translate }}
+                </p>
+                <ul class="space-y-4 mb-10">
+                  <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                    <mat-icon class="text-primary text-lg">arrow_right</mat-icon>
+                    {{ 'custom.trad.li1' | translate }}
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                    <mat-icon class="text-primary text-lg">arrow_right</mat-icon>
+                    {{ 'custom.trad.li2' | translate }}
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                    <mat-icon class="text-primary text-lg">arrow_right</mat-icon>
+                    {{ 'custom.trad.li3' | translate }}
+                  </li>
+                </ul>
+                <a routerLink="/contact" class="btn-primary w-full text-center">
+                  {{ 'custom.trad.cta' | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Beneficios -->
+      <section class="py-32 bg-surface-container-low">
+        <div class="editorial-container">
+          <div class="text-center max-w-3xl mx-auto mb-24">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-4 block">{{ 'custom.benefits.eyebrow' | translate }}</span>
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-primary">{{ 'custom.benefits.h2' | translate }}</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="card-tonal p-10">
+              <mat-icon class="text-4xl text-primary mb-6">auto_awesome</mat-icon>
+              <h3 class="text-xl font-bold text-primary mb-4">{{ 'custom.benefits.b1.title' | translate }}</h3>
+              <p class="text-on-surface-variant font-light leading-relaxed">{{ 'custom.benefits.b1.desc' | translate }}</p>
+            </div>
+            <div class="card-tonal p-10">
+              <mat-icon class="text-4xl text-primary mb-6">engineering</mat-icon>
+              <h3 class="text-xl font-bold text-primary mb-4">{{ 'custom.benefits.b2.title' | translate }}</h3>
+              <p class="text-on-surface-variant font-light leading-relaxed">{{ 'custom.benefits.b2.desc' | translate }}</p>
+            </div>
+            <div class="card-tonal p-10">
+              <mat-icon class="text-4xl text-primary mb-6">savings</mat-icon>
+              <h3 class="text-xl font-bold text-primary mb-4">{{ 'custom.benefits.b3.title' | translate }}</h3>
+              <p class="text-on-surface-variant font-light leading-relaxed">{{ 'custom.benefits.b3.desc' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="py-32 bg-primary text-surface">
+        <div class="editorial-container text-center max-w-4xl mx-auto">
+          <h2 class="text-4xl lg:text-6xl font-extrabold mb-12 leading-tight tracking-tighter">{{ 'custom.cta.h2' | translate }}</h2>
+          <p class="text-xl font-light leading-relaxed mb-12 opacity-80">
+            {{ 'custom.cta.desc' | translate }}
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a routerLink="/contact" class="bg-secondary-container text-primary px-12 py-6 rounded-md font-bold hover:opacity-90 transition-all">
+              {{ 'custom.cta.btn' | translate }}
+            </a>
           </div>
         </div>
       </section>

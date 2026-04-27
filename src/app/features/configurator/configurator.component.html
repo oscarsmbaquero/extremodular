@@ -1,17 +1,17 @@
- <div class="bg-surface min-h-screen">
+﻿ <div class="bg-surface min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="editorial-grid">
           <!-- Left Column: Controls -->
           <div class="col-span-12 lg:col-span-4 space-y-12">
             <div>
-              <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-2 block">Configurador</span>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-2 block">{{ 'config.eyebrow' | translate }}</span>
               <h2 class="text-4xl font-extrabold text-primary">{{ configService.selectedModel()?.name }}</h2>
-              <p class="text-on-surface-variant mt-3 font-light leading-relaxed">Personaliza cada detalle de tu futura vivienda modular.</p>
+              <p class="text-on-surface-variant mt-3 font-light leading-relaxed">{{ 'config.subtitle' | translate }}</p>
             </div>
 
             <!-- Model Selection -->
             <section class="bg-surface-container-low p-8 rounded-lg">
-              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Modelo de Vivienda</h3>
+              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">{{ 'config.model' | translate }}</h3>
               <div class="grid grid-cols-2 gap-4">
                 @for (model of dataService.models(); track model.id) {
                   <button 
@@ -30,7 +30,7 @@
             <!-- Modules -->
             @if (configService.selectedModel()?.id === 'm4') {
               <section class="bg-surface-container-low p-8 rounded-lg">
-                <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Número de Módulos</h3>
+                <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">{{ 'config.modules' | translate }}</h3>
                 <div class="flex items-center justify-between bg-surface-container-lowest p-4 rounded-md shadow-ambient">
                   <button (click)="updateModules(-1)" [disabled]="configService.config().modules <= 1" class="w-12 h-12 rounded-md bg-secondary-container text-on-secondary-container flex items-center justify-center hover:opacity-80 disabled:opacity-30 transition-all">
                     <span class="material-icons">remove</span>
@@ -44,7 +44,7 @@
 
               <!-- Distribution -->
               <section class="bg-surface-container-low p-8 rounded-lg">
-                <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Distribución</h3>
+                <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">{{ 'config.distribution' | translate }}</h3>
                 <div class="grid grid-cols-3 gap-3">
                   @for (shape of ['Lineal', 'L', 'U']; track shape) {
                     <button 
@@ -63,7 +63,7 @@
 
             <!-- Packs -->
             <section class="bg-surface-container-low p-8 rounded-lg">
-              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Packs de Acabados</h3>
+              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">{{ 'config.packs' | translate }}</h3>
               <div class="space-y-4">
                 @for (pack of dataService.packs(); track pack.id) {
                   <div 
@@ -89,7 +89,7 @@
 
             <!-- Extras -->
             <section class="bg-surface-container-low p-8 rounded-lg">
-              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">Extras</h3>
+              <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/60 mb-6">{{ 'config.extras' | translate }}</h3>
               <div class="space-y-4">
                 @for (extra of dataService.extras(); track extra.id) {
                   <label class="flex items-center p-4 bg-surface-container-lowest rounded-md cursor-pointer transition-all duration-300 shadow-ambient group">
@@ -113,13 +113,13 @@
               
               <div class="relative z-10 glass-panel p-10 rounded-lg border border-white/30 max-w-md mx-auto text-center shadow-ambient-lg">
                 <span class="material-icons text-5xl text-primary mb-4">view_in_ar</span>
-                <h3 class="text-2xl font-display font-bold text-primary">Visualizador 3D</h3>
+                <h3 class="text-2xl font-display font-bold text-primary">{{ 'config.viz3d' | translate }}</h3>
                 <p class="text-on-surface-variant mt-2 font-light">
-                  Explora tu diseño en tiempo real. <br>
-                  <span class="font-medium text-primary/80">Módulos: {{ configService.config().modules }} | {{ configService.config().distributionShape }}</span>
+                  {{ 'config.viz3d.desc' | translate }} <br>
+                  <span class="font-medium text-primary/80">{{ 'config.modules' | translate }}: {{ configService.config().modules }} | {{ configService.config().distributionShape }}</span>
                 </p>
                 <div class="mt-8 pt-8 border-t border-primary/10">
-                  <p class="text-[10px] uppercase tracking-[0.3em] text-primary/40 font-bold">Integración Arquitectónica Activa</p>
+                  <p class="text-[10px] uppercase tracking-[0.3em] text-primary/40 font-bold">{{ 'config.arcInt' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -127,10 +127,10 @@
             <!-- Floating Price Summary -->
             <div class="mt-12 glass-panel p-10 rounded-lg shadow-ambient-lg flex flex-col sm:flex-row items-center justify-between gap-8 border border-white/40">
               <div class="text-center sm:text-left">
-                <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold block mb-2">Inversión Estimada</span>
+                <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold block mb-2">{{ 'config.investment' | translate }}</span>
                 <p class="text-5xl font-display font-bold text-primary tracking-tighter">{{ configService.totalPrice() | currency:'EUR':'symbol':'1.0-0' }}</p>
                 <div class="flex items-center gap-4 mt-3 text-on-surface-variant/60">
-                  <span class="text-xs font-medium uppercase tracking-widest">{{ configService.totalArea() }} m²</span>
+                  <span class="text-xs font-medium uppercase tracking-widest">{{ configService.totalArea() }} mÂ²</span>
                   <span class="w-1 h-1 rounded-full bg-primary/20"></span>
                   <span class="text-xs font-medium uppercase tracking-widest">{{ configService.selectedPack()?.name }} Pack</span>
                 </div>
@@ -140,12 +140,12 @@
                 <div class="bg-primary/5 px-8 py-4 rounded-md border border-primary/10 animate-in zoom-in duration-500">
                   <p class="text-primary font-bold text-sm flex items-center gap-2">
                     <span class="material-icons text-emerald-500">check_circle</span>
-                    Solicitud enviada con éxito
+                    {{ 'config.sent' | translate }}
                   </p>
                 </div>
               } @else {
                 <button (click)="requestQuote()" class="btn-primary w-full sm:w-auto px-12 py-5 text-lg group/btn">
-                  <span>Solicitar Presupuesto</span>
+                  <span>{{ 'config.quote' | translate }}</span>
                   <span class="material-icons ml-3 transition-transform group-hover/btn:translate-x-1">send</span>
                 </button>
               }
@@ -153,4 +153,3 @@
           </div>
         </div>
       </div>
-    </div>

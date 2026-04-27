@@ -15,29 +15,198 @@
         <div class="col-span-12 lg:col-span-8">
           <span class="text-[10px] uppercase tracking-[0.4em] text-surface/60 font-bold mb-4 block
                    animate-in fade-in slide-in-from-bottom-4 duration-700 delay-0 fill-mode-both">
-            Arquitectura de Precisión
+            {{ 'home.hero.eyebrow' | translate }}
           </span>
           <h1 class="text-6xl lg:text-8xl font-extrabold text-surface leading-[1.05] mb-8
                  animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150 fill-mode-both">
-            Viviendas que <br>
-            <span class="text-secondary-container italic font-medium">respiran futuro.</span>
+            {{ 'home.hero.h1a' | translate }} <br>
+            <span class="text-secondary-container italic font-medium">{{ 'home.hero.h1b' | translate }}</span>
           </h1>
           <p class="text-xl lg:text-2xl text-surface/80 font-light leading-relaxed max-w-2xl mb-5
                 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300 fill-mode-both">
-            Construcción modular industrializada de alta gama. Eficiencia técnica, diseño de vanguardia y alma natural
-            en cada módulo.
+            {{ 'home.hero.desc' | translate }}
           </p>
           <div class="flex flex-nowrap items-center gap-3 sm:gap-6 mb-5
                   animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
             <a routerLink="/models" class="btn-primary px-4 py-3 text-sm sm:px-10 sm:py-5 sm:text-lg flex items-center gap-2 sm:gap-3 whitespace-nowrap">
-              Explorar Modelos
+              {{ 'home.hero.cta1' | translate }}
               <mat-icon>arrow_forward</mat-icon>
             </a>
             <a routerLink="/custom"
               class="bg-surface/10 backdrop-blur-md text-surface border border-surface/20 px-4 py-3 text-sm sm:px-10 sm:py-5 sm:text-base rounded-md font-medium hover:bg-surface/20 transition-all whitespace-nowrap">
-              Proyecto a Medida
+              {{ 'home.hero.cta2' | translate }}
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué es EXTREMODULAR -->
+  <section class="py-12 bg-surface">
+    <div class="editorial-container">
+      <div class="editorial-grid items-center">
+        <div class="col-span-12 lg:col-span-5">
+          <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-4 block">{{ 'home.concept.eyebrow' | translate }}</span>
+          <h2 class="text-4xl lg:text-5xl font-extrabold text-primary mb-8 leading-tight">{{ 'home.concept.h2' | translate }}</h2>
+          <p class="text-editorial-body text-lg mb-8">
+            {{ 'home.concept.p1' | translate }}
+          </p>
+          <p class="text-editorial-body text-lg">
+            {{ 'home.concept.p2' | translate }}
+          </p>
+        </div>
+
+        <!-- Imagen centrada en móvil, alineada a la derecha en desktop -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="relative aspect-square w-full max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden shadow-ambient-lg">
+            <img
+              src="https://picsum.photos/seed/architecture-detail/1000/1000"
+              alt="Detalle Arquitectónico"
+              class="w-full h-full object-cover"
+              referrerpolicy="no-referrer">
+            <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ventajas -->
+  <section class="py-12 bg-surface-container-low">
+    <div class="editorial-container">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-4 block">{{ 'home.adv.eyebrow' | translate }}</span>
+        <h2 class="text-4xl lg:text-5xl font-extrabold text-primary">{{ 'home.adv.h2' | translate }}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div class="card-tonal p-8 lg:p-10 group hover:bg-surface-container transition-all duration-500">
+          <mat-icon class="text-4xl text-primary mb-6 scale-125">speed</mat-icon>
+          <h3 class="text-xl font-bold text-primary mb-4">{{ 'home.adv.speed.title' | translate }}</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">{{ 'home.adv.speed.desc' | translate }}</p>
+        </div>
+        <div class="card-tonal p-8 lg:p-10 group hover:bg-surface-container transition-all duration-500">
+          <mat-icon class="text-4xl text-primary mb-6 scale-125">precision_manufacturing</mat-icon>
+          <h3 class="text-xl font-bold text-primary mb-4">{{ 'home.adv.quality.title' | translate }}</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">{{ 'home.adv.quality.desc' | translate }}</p>
+        </div>
+        <div class="card-tonal p-8 lg:p-10 group hover:bg-surface-container transition-all duration-500">
+          <mat-icon class="text-4xl text-primary mb-6 scale-125">eco</mat-icon>
+          <h3 class="text-xl font-bold text-primary mb-4">{{ 'home.adv.eco.title' | translate }}</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">{{ 'home.adv.eco.desc' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Models Teaser -->
+  <section class="py-12 bg-surface">
+    <div class="editorial-container">
+      <div class="flex justify-between items-end mb-16">
+        <div>
+          <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-4 block">{{ 'home.catalog.eyebrow' | translate }}</span>
+          <h2 class="text-4xl lg:text-5xl font-extrabold text-primary">{{ 'home.catalog.h2' | translate }}</h2>
+        </div>
+        <a routerLink="/models" class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
+          {{ 'home.catalog.link' | translate }} <mat-icon>arrow_forward</mat-icon>
+        </a>
+      </div>
+
+      <div class="editorial-grid">
+        @for (model of dataService.models().slice(0, 3); track model.id) {
+          <div class="col-span-12 md:col-span-4 group cursor-pointer" [routerLink]="['/models']">
+            <div class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-ambient group-hover:shadow-ambient-lg transition-all duration-700">
+              <img [src]="model.images[0]" [alt]="model.name"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                referrerpolicy="no-referrer">
+            </div>
+            <h3 class="text-2xl font-display font-bold text-primary">{{ model.name }}</h3>
+            <p class="text-on-surface-variant font-light mt-2">{{ model.area }} m² · {{ model.distribution }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos a Medida -->
+  <section class="py-12 bg-primary text-surface overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+      <img src="https://picsum.photos/seed/blueprint/1000/1000" alt="Blueprint"
+        class="w-full h-full object-cover grayscale invert" referrerpolicy="no-referrer">
+    </div>
+    <div class="editorial-container relative z-10">
+      <div class="editorial-grid">
+        <div class="col-span-12 lg:col-span-6">
+          <span class="text-[10px] uppercase tracking-[0.3em] text-surface/60 font-bold mb-4 block">{{ 'home.custom.eyebrow' | translate }}</span>
+          <h2 class="text-4xl lg:text-6xl font-extrabold mb-8 leading-tight">{{ 'home.custom.h2a' | translate }} <br>{{ 'home.custom.h2b' | translate }}</h2>
+          <p class="text-xl text-surface/80 font-light leading-relaxed mb-12">
+            {{ 'home.custom.desc' | translate }}
+          </p>
+          <a routerLink="/custom"
+            class="inline-flex items-center gap-4 bg-secondary-container text-primary px-10 py-5 rounded-md font-bold hover:opacity-90 transition-all">
+            {{ 'home.custom.cta' | translate }}
+            <mat-icon>design_services</mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo trabajamos -->
+  <section class="py-12 bg-surface">
+    <div class="editorial-container">
+      <div class="text-center max-w-3xl mx-auto mb-24">
+        <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-4 block">{{ 'home.process.eyebrow' | translate }}</span>
+        <h2 class="text-4xl lg:text-5xl font-extrabold text-primary">{{ 'home.process.h2' | translate }}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="relative p-8 border-l-2 border-primary/10 hover:border-primary transition-colors">
+          <span class="text-5xl font-display font-black text-primary/5 absolute -top-4 -left-4">01</span>
+          <h4 class="text-lg font-bold text-primary mb-3">{{ 'home.process.s1' | translate }}</h4>
+          <p class="text-sm text-on-surface-variant font-light">{{ 'home.process.s1desc' | translate }}</p>
+        </div>
+        <div class="relative p-8 border-l-2 border-primary/10 hover:border-primary transition-colors">
+          <span class="text-5xl font-display font-black text-primary/5 absolute -top-4 -left-4">02</span>
+          <h4 class="text-lg font-bold text-primary mb-3">{{ 'home.process.s2' | translate }}</h4>
+          <p class="text-sm text-on-surface-variant font-light">{{ 'home.process.s2desc' | translate }}</p>
+        </div>
+        <div class="relative p-8 border-l-2 border-primary/10 hover:border-primary transition-colors">
+          <span class="text-5xl font-display font-black text-primary/5 absolute -top-4 -left-4">03</span>
+          <h4 class="text-lg font-bold text-primary mb-3">{{ 'home.process.s3' | translate }}</h4>
+          <p class="text-sm text-on-surface-variant font-light">{{ 'home.process.s3desc' | translate }}</p>
+        </div>
+        <div class="relative p-8 border-l-2 border-primary/10 hover:border-primary transition-colors">
+          <span class="text-5xl font-display font-black text-primary/5 absolute -top-4 -left-4">04</span>
+          <h4 class="text-lg font-bold text-primary mb-3">{{ 'home.process.s4' | translate }}</h4>
+          <p class="text-sm text-on-surface-variant font-light">{{ 'home.process.s4desc' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <a routerLink="/process"
+          class="text-primary font-bold border-b-2 border-primary/20 pb-1 hover:border-primary transition-all">
+          {{ 'home.process.link' | translate }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-12 bg-surface-container-lowest">
+    <div class="editorial-container text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-5xl lg:text-7xl font-extrabold text-primary mb-12 tracking-tighter">
+          {{ 'home.cta.h2a' | translate }} <br>{{ 'home.cta.h2b' | translate }}
+        </h2>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a routerLink="/contact" class="btn-primary px-12 py-6 text-xl">
+            {{ 'home.cta.btn1' | translate }}
+          </a>
+          <a routerLink="/configurator" class="btn-secondary px-12 py-6 text-xl">
+            {{ 'home.cta.btn2' | translate }}
+          </a>
         </div>
       </div>
     </div>

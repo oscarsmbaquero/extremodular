@@ -4,13 +4,13 @@
         <div class="editorial-grid">
           <div class="col-span-12 lg:col-span-7">
             <h1 class="text-5xl lg:text-7xl font-extrabold text-primary leading-[1.1] mb-8">
-              Arquitectura <br>
-              <span class="text-on-surface-variant font-medium italic">de Precisión Orgánica.</span>
+              {{ 'catalog.hero.h1a' | translate }} <br>
+              <span class="text-on-surface-variant font-medium italic">{{ 'catalog.hero.h1b' | translate }}</span>
             </h1>
           </div>
           <div class="col-span-12 lg:col-span-4 lg:col-start-9 flex items-end">
             <p class="text-xl text-on-surface-variant leading-relaxed font-light">
-              Descubre nuestra gama de viviendas modulares industrializadas. Un equilibrio perfecto entre la eficiencia técnica y el alma natural.
+              {{ 'catalog.hero.desc' | translate }}
             </p>
           </div>
         </div>
@@ -26,17 +26,9 @@
                   <img [src]="model.images[0]" [alt]="model.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" referrerpolicy="no-referrer">
                   
                   <!-- Glassmorphism Overlay -->
-                  <div class="absolute bottom-4 left-4 right-4 glass-panel p-6 rounded-md border border-white/20">
-                    <div class="flex justify-between items-end">
-                      <div>
-                        <span class="text-[10px] uppercase tracking-[0.2em] text-primary/60 font-bold mb-1 block">Modelo</span>
-                        <h3 class="text-2xl font-display font-bold text-primary">{{ model.name }}</h3>
-                      </div>
-                      <div class="text-right">
-                        <span class="text-[10px] uppercase tracking-[0.2em] text-primary/60 font-bold mb-1 block">Desde</span>
-                        <span class="text-xl font-display font-semibold text-primary">{{ model.basePrice | currency:'EUR':'symbol':'1.0-0' }}</span>
-                      </div>
-                    </div>
+                  <div class="absolute bottom-3 left-4 glass-panel px-3 py-2 rounded-md border border-white/20 inline-block">
+                    <span class="text-[9px] uppercase tracking-[0.2em] text-primary/60 font-bold block leading-none mb-0.5">{{ 'catalog.grid.model' | translate }}</span>
+                    <h3 class="text-lg font-display font-bold text-primary leading-tight">{{ model.name }}</h3>
                   </div>
                 </div>
 
@@ -46,17 +38,17 @@
                   </div>
                   
                   <div class="col-span-6">
-                    <span class="block text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 font-bold mb-1">Superficie</span>
+                    <span class="block text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 font-bold mb-1">{{ 'catalog.grid.surface' | translate }}</span>
                     <span class="text-sm font-medium text-on-surface">{{ model.area }} m²</span>
                   </div>
                   <div class="col-span-6">
-                    <span class="block text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 font-bold mb-1">Distribución</span>
+                    <span class="block text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 font-bold mb-1">{{ 'catalog.grid.distribution' | translate }}</span>
                     <span class="text-sm font-medium text-on-surface">{{ model.distribution }}</span>
                   </div>
 
                   <div class="col-span-12 mt-4">
                     <button (click)="configure(model.id)" class="btn-primary w-full flex justify-between items-center group/btn">
-                      <span>Configurar Vivienda</span>
+                      <span>{{ 'catalog.grid.cta' | translate }}</span>
                       <span class="material-icons transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
                     </button>
                   </div>

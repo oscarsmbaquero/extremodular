@@ -4,11 +4,12 @@ import { DataService } from '../../core/services/data.service';
 import { Router } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TranslatePipe } from '../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-pricing',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CurrencyPipe, ReactiveFormsModule],
+  imports: [CurrencyPipe, ReactiveFormsModule, TranslatePipe],
   templateUrl: './pricing.component.html',
 })
 export class PricingComponent {

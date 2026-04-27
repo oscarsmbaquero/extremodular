@@ -10,19 +10,39 @@
     <!-- Desktop Nav -->
     <nav class="hidden sm:flex items-center gap-1">
       <a routerLink="/" routerLinkActive="text-primary bg-surface-container" [routerLinkActiveOptions]="{exact: true}"
-         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">Inicio</a>
+         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">{{ 'nav.home' | translate }}</a>
       <a routerLink="/models" routerLinkActive="text-primary bg-surface-container"
-         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">Catálogo</a>
+         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">{{ 'nav.catalog' | translate }}</a>
       <a routerLink="/configurator" routerLinkActive="text-primary bg-surface-container"
-         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">Configurador</a>
+         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">{{ 'nav.configurator' | translate }}</a>
       <a routerLink="/custom" routerLinkActive="text-primary bg-surface-container"
-         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">A Medida</a>
+         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">{{ 'nav.custom' | translate }}</a>
       <a routerLink="/process" routerLinkActive="text-primary bg-surface-container"
-         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">Proceso</a>
+         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">{{ 'nav.process' | translate }}</a>
       <a routerLink="/about" routerLinkActive="text-primary bg-surface-container"
-         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">Nosotros</a>
+         class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest transition-all">{{ 'nav.about' | translate }}</a>
       <a routerLink="/contact"
-         class="btn-primary !py-2 !px-5 !rounded-full text-xs ml-2">Contacto</a>
+         class="btn-primary !py-2 !px-5 !rounded-full text-xs ml-2">{{ 'nav.contact' | translate }}</a>
+      <!-- Language Switcher -->
+      <div class="flex items-center gap-0.5 ml-2 border border-outline-variant/30 rounded-full px-2.5 py-1">
+        <button
+          (click)="translationService.setLang('es')"
+          [class.text-primary]="translationService.currentLang() === 'es'"
+          [class.font-bold]="translationService.currentLang() === 'es'"
+          [class.text-on-surface-variant]="translationService.currentLang() !== 'es'"
+          class="text-[10px] uppercase tracking-widest transition-colors hover:text-primary cursor-pointer">
+          ES
+        </button>
+        <span class="text-outline-variant/40 text-xs mx-0.5">|</span>
+        <button
+          (click)="translationService.setLang('pt')"
+          [class.text-primary]="translationService.currentLang() === 'pt'"
+          [class.font-bold]="translationService.currentLang() === 'pt'"
+          [class.text-on-surface-variant]="translationService.currentLang() !== 'pt'"
+          class="text-[10px] uppercase tracking-widest transition-colors hover:text-primary cursor-pointer">
+          PT
+        </button>
+      </div>
     </nav>
 
     <!-- Hamburger -->
@@ -46,13 +66,33 @@
   @if (menuOpen()) {
     <div class="sm:hidden absolute top-20 left-4 right-4 bg-surface/95 backdrop-blur-xl rounded-2xl border border-outline-variant/15 shadow-ambient-lg animate-in slide-in-from-top duration-300">
       <div class="px-3 py-3 space-y-1">
-        <a routerLink="/" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" [routerLinkActiveOptions]="{exact: true}" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">Inicio</a>
-        <a routerLink="/models" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">Catálogo</a>
-        <a routerLink="/configurator" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">Configurador</a>
-        <a routerLink="/custom" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">A Medida</a>
-        <a routerLink="/process" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">Proceso</a>
-        <a routerLink="/about" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">Nosotros</a>
-        <a routerLink="/contact" (click)="closeMenu()" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-primary bg-primary hover:opacity-90 transition-all text-center mt-2">Contacto</a>
+        <a routerLink="/" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" [routerLinkActiveOptions]="{exact: true}" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">{{ 'nav.home' | translate }}</a>
+        <a routerLink="/models" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">{{ 'nav.catalog' | translate }}</a>
+        <a routerLink="/configurator" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">{{ 'nav.configurator' | translate }}</a>
+        <a routerLink="/custom" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">{{ 'nav.custom' | translate }}</a>
+        <a routerLink="/process" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">{{ 'nav.process' | translate }}</a>
+        <a routerLink="/about" (click)="closeMenu()" routerLinkActive="bg-secondary-container text-primary" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all">{{ 'nav.about' | translate }}</a>
+        <a routerLink="/contact" (click)="closeMenu()" class="block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-widest text-on-primary bg-primary hover:opacity-90 transition-all text-center mt-2">{{ 'nav.contact' | translate }}</a>
+        <!-- Mobile Language Switcher -->
+        <div class="flex items-center gap-3 px-4 py-3 border-t border-outline-variant/10 mt-1">
+          <button
+            (click)="translationService.setLang('es'); closeMenu()"
+            [class.text-primary]="translationService.currentLang() === 'es'"
+            [class.font-bold]="translationService.currentLang() === 'es'"
+            [class.text-on-surface-variant]="translationService.currentLang() !== 'es'"
+            class="text-xs uppercase tracking-widest transition-colors hover:text-primary cursor-pointer">
+            ES
+          </button>
+          <span class="text-outline-variant/40 text-xs">|</span>
+          <button
+            (click)="translationService.setLang('pt'); closeMenu()"
+            [class.text-primary]="translationService.currentLang() === 'pt'"
+            [class.font-bold]="translationService.currentLang() === 'pt'"
+            [class.text-on-surface-variant]="translationService.currentLang() !== 'pt'"
+            class="text-xs uppercase tracking-widest transition-colors hover:text-primary cursor-pointer">
+            PT
+          </button>
+        </div>
       </div>
     </div>
   }

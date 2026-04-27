@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '../../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './footer.html',
 })
-export class Footer {
-
-}
+export class Footer {}

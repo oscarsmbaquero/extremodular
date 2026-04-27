@@ -3,11 +3,12 @@ import { ConfiguratorService } from '../../core/services/configurator.service';
 import { DataService } from '../../core/services/data.service';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-configurator',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, TranslatePipe],
   templateUrl: './configurator.component.html'
 })
 export class ConfiguratorComponent {

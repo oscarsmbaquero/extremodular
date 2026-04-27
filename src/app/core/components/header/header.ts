@@ -1,15 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
+import { TranslatePipe } from '../../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class Header {
-
-   menuOpen = signal(false);
+  translationService = inject(TranslationService);
+  menuOpen = signal(false);
 
   toggleMenu() {
     this.menuOpen.update(v => !v);
@@ -18,5 +20,4 @@ export class Header {
   closeMenu() {
     this.menuOpen.set(false);
   }
-
 }
